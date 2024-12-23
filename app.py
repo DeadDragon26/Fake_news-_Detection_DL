@@ -1,7 +1,7 @@
+
 import numpy as np
 import streamlit as st
 import tensorflow as tf
-import pickle
 import nltk 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 nltk.download('stopwords')
@@ -10,9 +10,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import pickle
 
-with open('fake_news_detection_model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
+
+with open('fake_news_model.pkl', 'rb') as model_file:
+    model_lSTM = pickle.load(model_file)
+
+
 
 # Streamlit App
 st.title("Fake News Classifier")
