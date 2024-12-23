@@ -1,16 +1,4 @@
 import pickle
-import numpy as np
-from flask import Flask, request, jsonify, render_template
-import pandas as pd
-import numpy as np
-import nltk
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import accuracy_score, confusion_matrix
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Embedding, Dropout, SpatialDropout1D
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 import streamlit as st
 import tensorflow as tf
 import pickle
