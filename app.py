@@ -4,10 +4,7 @@ import streamlit as st
 import tensorflow as tf
 import nltk 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-nltk.download('stopwords')
 from sklearn.feature_extraction.text import TfidfVectorizer
-
-nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import pickle
