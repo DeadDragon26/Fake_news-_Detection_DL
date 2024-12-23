@@ -1,7 +1,5 @@
 import pickle
 import streamlit as st
-!pip install tensorflow
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 nltk.download('stopwords')
 nltk.download('punkt')
 from nltk.corpus import stopwords
