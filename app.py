@@ -11,12 +11,8 @@ nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-
-
-from tensorflow.keras.models import load_model
-
-model_lSTM = load_model('fake_news_detection_model.h5')
-
+with open('fake_news_detection_model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
 
 # Streamlit App
 st.title("Fake News Classifier")
