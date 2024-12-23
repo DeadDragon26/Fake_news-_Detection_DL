@@ -1,13 +1,21 @@
-import pickle
+import numpy as np
 import streamlit as st
+import tensorflow as tf
+import pickle
+import nltk 
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+nltk.download('stopwords')
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+nltk.download('punkt')
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 
 
+from tensorflow.keras.models import load_model
 
-with open('fake_news_model.pkl', 'rb') as model_file:
-    model_LSTM = pickle.load(model_file)
-with open('vectorizer.pkl', 'rb') as model_file:
-    vectorizer = pickle.load(model_file)
+model_lSTM = load_model('fake_news_detection_model.h5')
 
 
 # Streamlit App
@@ -19,7 +27,7 @@ if st.button("Classify"):
     vectorizer = TfidfVectorizer(max_features=5000)
     sample_article_vec = vectorizer.fit_transform([text])
     sample_article_pad = pad_sequences(sample_article_vec.toarray(), maxlen=100)
-    prediction = np.argmax(model_LSTM.predict(sample_article_pad))
+    prediction = np.argmax(model_lSTM.predict(sample_article_pad))
     print(type(text))
     
     
